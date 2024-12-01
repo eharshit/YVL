@@ -1,0 +1,10 @@
+fs = 1000;
+t = 0:1/fs:1;
+f = 1; 
+ecg_signal = 1.5 * sin(2 * pi * f * t) + 0.25 * sin(2 * pi * 50 * t);
+plot(t, ecg_signal);
+xlabel('Time (s)');
+ylabel('Amplitude');
+title('Simulated ECG Signal');
+grid on;
+csvwrite('ecg_signal.csv', ecg_signal);

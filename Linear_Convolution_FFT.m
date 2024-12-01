@@ -1,0 +1,10 @@
+x = [1, 2, 3, 4]; 
+h = [1, 1, 1, 1];
+X = fft(x, length(x) + length(h) - 1); 
+H = fft(h, length(x) + length(h) - 1);
+Y = ifft(X .* H); 
+stem(0:length(Y)-1, Y, 'filled');
+xlabel('n');
+ylabel('Amplitude');
+title('Linear Convolution using FFT');
+grid on;

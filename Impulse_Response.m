@@ -1,0 +1,22 @@
+num = [1 1]; 
+den = [1 2 1]; 
+sys = tf(num, den);
+disp('Transfer Function:');
+disp(sys);
+figure;
+impulse(sys);
+title('Impulse Response of H(s) = 1 / (s+1)^2');
+xlabel('Time (s)');
+ylabel('Amplitude');
+grid on;
+syms t s
+F_s = 1 / (s+1)^2;
+f_t = ilaplace(F_s, s, t);
+disp('Inverse Laplace Transform:');
+disp(f_t);
+figure;
+fplot(f_t, [0, 10]);
+title('Inverse Laplace Transform of H(s) = 1 / (s+1)^2');
+xlabel('Time (s)');
+ylabel('Amplitude');
+grid on;

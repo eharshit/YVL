@@ -1,0 +1,11 @@
+fs = 1000; 
+t = 0:1/fs:1-1/fs;
+f = 50; 
+x = cos(2*pi*f*t); 
+x_decimated = downsample(x, 2);
+t_decimated = downsample(t, 2);
+x_interpolated = interp(x, 2);
+t_interpolated = linspace(0, 1, length(x_interpolated));
+subplot(3,1,1); plot(t, x); title('Original Signal');
+subplot(3,1,2); plot(t_decimated, x_decimated); title('Decimated Signal');
+subplot(3,1,3); plot(t_interpolated, x_interpolated); title('Interpolated Signal');

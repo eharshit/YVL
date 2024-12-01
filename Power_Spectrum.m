@@ -1,0 +1,12 @@
+Fs = 1000; 
+t = 0:1/Fs:1-1/Fs; 
+f1 = 50;
+f2 = 120;
+x = cos(2*pi*f1*t) + cos(2*pi*f2*t); 
+X = fft(x);
+P = abs(X).^2/length(X);
+freq = Fs*(0:(length(X)/2))/length(X); 
+plot(freq, P(1:length(X)/2+1));
+xlabel('Frequency (Hz)');
+ylabel('Power');
+title('Power Spectrum of the Given Signal');
